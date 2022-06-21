@@ -1,0 +1,18 @@
+{
+	"title": "com.apple.smb.server",
+	"description": "",
+	"properties": {
+        "AllowGuestAccess": {
+            "title": "AllowGuestAccess",
+            "description": "ControlName SMB Guest Acccess Disable",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
