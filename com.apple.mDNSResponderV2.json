@@ -4,7 +4,7 @@
 	"properties": {
         "NoMulticastAdvertisements": {
             "title": "NoMulticastAdvertisements",
-            "description": "",
+            "description": "Rule ID os_bonjour_disable CIS L2 CM 4.1 NIST 800-53 CM-7",
             "property_order": 5,
             "anyOf": [
                 {"type": "null", "title": "Not Configured"},
