@@ -1,0 +1,42 @@
+{
+	"title": "com.apple.systempolicy.control",
+	"description": "",
+	"properties": {
+        "DisableOverride": {
+            "title": "DisableOverride",
+            "description": "NIST 11.15. Configure Gatekeeper to Disallow End User Override",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "EnableAssessment": {
+            "title": "EnableAssessment",
+            "description": "NIST 8.16. Enable Gatekeeper, 11.14. Apply Gatekeeper Settings to Block Applications from Unidentified Developers",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "AllowIdentifiedDevelopers": {
+            "title": "AllowIdentifiedDevelopers",
+            "description": "NIST 11.14. Apply Gatekeeper Settings to Block Applications from Unidentified Developers",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
