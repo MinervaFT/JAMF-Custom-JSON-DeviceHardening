@@ -1,0 +1,18 @@
+{
+	"title": "com.apple.security",
+	"description": "",
+	"properties": {
+        "GKAutoRearm": {
+            "title": "GKAutoRearm",
+            "description": "NIST 8.17. Enforce Gatekeeper 30 Day Automatic Rearm",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
