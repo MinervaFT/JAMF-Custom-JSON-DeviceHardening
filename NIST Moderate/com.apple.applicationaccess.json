@@ -1,0 +1,286 @@
+{
+	"title": "com.apple.applicationaccess",
+	"description": "",
+	"properties": {
+        "allowFingerprintForUnlock": {
+            "title": "allowFingerprintForUnlock",
+            "description": "NIST 11.42. Disable TouchID for Unlocking the Device",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudPhotoLibrary": {
+            "title": "allowCloudPhotoLibrary",
+            "description": "NIST 10.9. Disable iCloud Photo Library",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudReminders": {
+            "title": "allowCloudReminders",
+            "description": "NIST 10.10. Disable iCloud Reminders",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudKeychainSync": {
+            "title": "allowCloudKeychainSync",
+            "description": "NIST 10.6. Disable iCloud Keychain Sync",
+            "property_order": 20,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "familyControlsEnabled": {
+            "title": "familyControlsEnabled",
+            "description": "NIST 8.8. Disable Calendar.app, 8.29. Enable Parental Controls",
+            "property_order": 25,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudCalendar": {
+            "title": "allowCloudCalendar",
+            "description": "NIST 10.4. Disable the iCloud Calendar Services",
+            "property_order": 30,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowPasswordProximityRequests": {
+            "title": "allowPasswordProximityRequests",
+            "description": "NIST 8.31. Disable Proximity Based Password Sharing Requests",
+            "property_order": 35,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowPasswordSharing": {
+            "title": "allowPasswordSharing",
+            "description": "NIST 8.32. Disable Password Sharing",
+            "property_order": 40,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowFindMyDevice": {
+            "title": "allowFindMyDevice",
+            "description": "NIST 11.11. Disable Find My Service",
+            "property_order": 45,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudAddressBook": {
+            "title": "allowCloudAddressBook",
+            "description": "NIST 10.1. Disable iCloud Address Book",
+            "property_order": 50,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowActivityContinuation": {
+            "title": "allowActivityContinuation",
+            "description": "NIST 8.18. Disable Handoff",
+            "property_order": 55,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowContentCaching": {
+            "title": "allowContentCaching",
+            "description": "NIST 11.7. Disable Content Caching Service",
+            "property_order": 60,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowPasswordAutoFill": {
+            "title": "allowPasswordAutoFill",
+            "description": "NIST 8.30. Disable Password Autofill",
+            "property_order": 65,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudDocumentSync": {
+            "title": "allowCloudDocumentSync",
+            "description": "10.5. Disable iCloud Document Sync",
+            "property_order": 70,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudNotes": {
+            "title": "allowCloudNotes",
+            "description": "NIST 10.8. Disable iCloud Notes",
+            "property_order": 75,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudDesktopAndDocumentallowCloudDesktopAndDocuments": {
+            "title": "allowCloudDesktopAndDocumentallowCloudDesktopAndDocuments",
+            "description": "NIST 10.11. Disable iCloud Desktop and Document Folder Sync",
+            "property_order": 80,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowDiagnosticSubmission": {
+            "title": "allowDiagnosticSubmission",
+            "description": "11.9. Disable Sending Diagnostic and Usage Data to Apple, use in conjunction with com.apple.SubmitDiagInfo",
+            "property_order": 85,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "pathBlackList": {
+            "title": "pathBlackList",
+            "description": "NIST 8.8. Disable Calendar.app, 8.11. Disable FaceTime.app, 8.23. Disable Mail App, 8.25. Disable Messages App",
+            "property_order": 90,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string",
+                    "options": {
+                        "enum_titles": ["/Applications/Calendar.app", "/Applications/FaceTime.app", "/Applications/Mail.app", "/Applications/Messages.app"]
+                    },
+                    "enum": ["/Applications/Calendar.app", "/Applications/FaceTime.app", "/Applications/Mail.app", "/Applications/Messages.app"]
+                }
+            ]
+        },
+        "AllowAirDrop": {
+            "title": "AllowAirDrop",
+            "description": "NIST 8.1. Disable AirDrop ",
+            "property_order": 95,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudMail": {
+            "title": "allowCloudMail",
+            "description": "NIST 10.7. Disable iCloud Mail",
+            "property_order": 100,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudBookmarks": {
+            "title": "allowCloudBookmarks",
+            "description": "NIST 10.3. Disable iCloud Bookmarks",
+            "property_order": 105,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowAutoUnlock": {
+            "title": "allowAutoUnlock",
+            "description": "NIST 11.1. Prevent Apple Watch from Terminating a Session Lock",
+            "property_order": 110,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowFindMyFriends": {
+            "title": "allowFindMyFriends",
+            "description": "NIST 11.11. Disable Find My Service",
+            "property_order": 115,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
