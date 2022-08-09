@@ -1,0 +1,90 @@
+{
+	"title": "com.apple.security.smartcard",
+	"description": "",
+	"properties": {
+        "checkCertificateTrust": {
+            "title": "checkCertificateTrust",
+            "description": "NIST 6.5. Set Smartcard Certificate Trust to Moderate",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "userPairing": {
+            "title": "userPairing",
+            "description": "NIST 15.5. Smartcard Supplemental",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "tokenRemovalAction": {
+            "title": "tokenRemovalAction",
+            "description": "NIST 11.41. Configure User Session Lock When a Smart Token is Removed",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "allowSmartCard": {
+            "title": "allowSmartCard",
+            "description": "NIST 6.4. Allow Smartcard Authentication",
+            "property_order": 20,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "enforceSmartCard": {
+            "title": "enforceSmartCard",
+            "description": "NIST 6.6. Enforce Smartcard Authentication",
+            "property_order": 25,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "oneCardPerUser": {
+            "title": "oneCardPerUser",
+            "description": "NIST 15.5. Smartcard Supplemental",
+            "property_order": 30,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowUnmappedUsers": {
+            "title": "allowUnmappedUsers",
+            "description": "NIST 15.5. Smartcard Supplemental",
+            "property_order": 35,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        }
+	}
+}
