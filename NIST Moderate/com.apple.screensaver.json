@@ -1,0 +1,54 @@
+{
+	"title": "com.apple.screensaver",
+	"description": "",
+	"properties": {
+        "loginWindowModulePath": {
+            "title": "loginWindowModulePath",
+            "description": "NIST 8.37. Enforce Screen Saver at Login Window",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string"
+                }
+            ]
+        },
+        "askForPasswordDelay": {
+            "title": "askForPasswordDelay",
+            "description": "NIST 11.32. Enforce Session Lock After Screen Saver is Started",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "idleTime": {
+            "title": "idleTime",
+            "description": "NIST 11.34. Enforce Screen Saver Timeout - Set in seconds",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "askForPassword": {
+            "title": "askForPassword",
+            "description": "NIST 11.33. Enforce Screen Saver Password",
+            "property_order": 20,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
