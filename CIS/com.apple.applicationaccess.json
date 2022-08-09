@@ -1,0 +1,78 @@
+{
+	"title": "com.apple.applicationaccess",
+	"description": "",
+	"properties": {
+        "enforcedSoftwareUpdateDelay": {
+            "title": "enforcedSoftwareUpdateDelay",
+            "description": "CIS 1.7 Ensure Software Update Deferment Is Less Than or Equal to 30 Days",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "AllowAirDrop": {
+            "title": "AllowAirDrop",
+            "description": "CIS 2.4.11 Ensure AirDrop Is Disabled ",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowAirPayIncomingRequests": {
+            "title": "allowAirPlayIncomingRequests",
+            "description": "CIS 2.4.11 Ensure AirDrop Is Disabled ",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowCloudDesktopAndDocuments": {
+            "title": "allowCloudDesktopAndDocuments",
+            "description": "CIS 2.6.1.3 Ensure iCloud Drive Document and Desktop Sync Is Disabled",
+            "property_order": 20,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowDiagnosticSubmission": {
+            "title": "allowDiagnosticSubmission",
+            "description": "CIS 2.5.5 Ensure Sending Diagnostic and Usage Data to Apple Is Disabled",
+            "property_order": 25,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowContentCaching": {
+            "title": "allowContentCaching",
+            "description": "CIS 2.4.10 Ensure Content Caching Is Disabled",
+            "property_order": 30,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
