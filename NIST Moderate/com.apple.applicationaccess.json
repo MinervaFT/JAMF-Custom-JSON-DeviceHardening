@@ -214,11 +214,11 @@
                 {"type": "null", "title": "Not Configured"},
                 {
                     "title": "Configured",
-                    "type": "string",
-                    "options": {
-                        "enum_titles": ["/Applications/Calendar.app", "/Applications/FaceTime.app", "/Applications/Mail.app", "/Applications/Messages.app"]
-                    },
-                    "enum": ["/Applications/Calendar.app", "/Applications/FaceTime.app", "/Applications/Mail.app", "/Applications/Messages.app"]
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "title": "Entries"
+                    }
                 }
             ]
         },
