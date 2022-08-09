@@ -1,0 +1,30 @@
+{
+	"title": "com.apple.controlcenter",
+	"description": "",
+	"properties": {
+        "Bluetooth": {
+            "title": "Bluetooth",
+            "description": "CIS 2.1.1 Ensure Show Bluetooth Status in Menu Bar Is Enabled (set to 18)",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "WiFi": {
+            "title": "WiFi",
+            "description": "CIS 2.1.2 Ensure Show Wi-Fi status in Menu Bar Is Enabled",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        }
+	}
+}
