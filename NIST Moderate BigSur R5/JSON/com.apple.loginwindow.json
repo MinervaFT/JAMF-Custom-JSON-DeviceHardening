@@ -1,0 +1,54 @@
+{
+	"title": "com.apple.loginwindow",
+	"description": "",
+	"properties": {
+        "com.apple.login.mcx.DisableAutoLoginClient": {
+            "title": "com.apple.login.mcx.DisableAutoLoginClient",
+            "description": "NIST 11.2. Disable Unattended or Automatic Logon to the System",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "RetriesUntilHint": {
+            "title": "RetriesUntilHint",
+            "description": "11.25. Disable Password Hints, Set to 0",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "SHOWFULLNAME": {
+            "title": "SHOWFULLNAME",
+            "description": "NIST 11.23. Configure Login Window to Prompt for Username and Password",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "DisableFDEAutoLogin": {
+            "title": "DisableFDEAutoLogin",
+            "description": "NIST 8.12. Disable FileVault Automatic Login, 15.5. Smartcard Supplemental",
+            "property_order": 20,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
