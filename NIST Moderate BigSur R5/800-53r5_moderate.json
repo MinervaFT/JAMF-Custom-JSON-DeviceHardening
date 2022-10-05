@@ -1,0 +1,3637 @@
+
+    {
+  "title": "org.800-53r5_moderate.audit.plist",
+  "description": "Preference Domain: org.800-53r5_moderate.audit,  Application: macOS Security Compliance Project",
+  "__version": "1.0",
+  "__feedback": "boberito@mac.com",
+  "type": "object",
+  "options": {
+    "remove_empty_properties": true
+  },
+  "properties": {
+      "auth_pam_login_smartcard_enforce": {
+      "title": "auth_pam_login_smartcard_enforce",
+      "description": "Enforce Multifactor Authentication for Login",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "auth_pam_su_smartcard_enforce": {
+      "title": "auth_pam_su_smartcard_enforce",
+      "description": "Enforce Multifactor Authentication for the su Command",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "auth_pam_sudo_smartcard_enforce": {
+      "title": "auth_pam_sudo_smartcard_enforce",
+      "description": "Enforce Multifactor Authentication for Privilege Escalation Through the sudo Command",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "auth_smartcard_allow": {
+      "title": "auth_smartcard_allow",
+      "description": "Allow Smartcard Authentication",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "auth_smartcard_certificate_trust_enforce_moderate": {
+      "title": "auth_smartcard_certificate_trust_enforce_moderate",
+      "description": "Set Smartcard Certificate Trust to Moderate",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "auth_smartcard_enforce": {
+      "title": "auth_smartcard_enforce",
+      "description": "Enforce Smartcard Authentication",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_acls_files_configure": {
+      "title": "audit_acls_files_configure",
+      "description": "Configure Audit Log Files to Not Contain Access Control Lists",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_acls_folders_configure": {
+      "title": "audit_acls_folders_configure",
+      "description": "Configure Audit Log Folder to Not Contain Access Control Lists",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_auditd_enabled": {
+      "title": "audit_auditd_enabled",
+      "description": "Enable Security Auditing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_failure_halt": {
+      "title": "audit_failure_halt",
+      "description": "Configure System to Shut Down Upon Audit Failure",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_files_group_configure": {
+      "title": "audit_files_group_configure",
+      "description": "Configure Audit Log Files Group to Wheel",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_files_mode_configure": {
+      "title": "audit_files_mode_configure",
+      "description": "Configure Audit Log Files to Mode 440 or Less Permissive",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_files_owner_configure": {
+      "title": "audit_files_owner_configure",
+      "description": "Configure Audit Log Files to be Owned by Root",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_aa_configure": {
+      "title": "audit_flags_aa_configure",
+      "description": "Configure System to Audit All Authorization and Authentication Events",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_ad_configure": {
+      "title": "audit_flags_ad_configure",
+      "description": "Configure System to Audit All Administrative Action Events",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_ex_configure": {
+      "title": "audit_flags_ex_configure",
+      "description": "Configure System to Audit All Failed Program Execution on the System",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_fd_configure": {
+      "title": "audit_flags_fd_configure",
+      "description": "Configure System to Audit All Deletions of Object Attributes",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_fm_configure": {
+      "title": "audit_flags_fm_configure",
+      "description": "Configure System to Audit All Failed Change of Object Attributes",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_fr_configure": {
+      "title": "audit_flags_fr_configure",
+      "description": "Configure System to Audit All Failed Read Actions on the System",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_fw_configure": {
+      "title": "audit_flags_fw_configure",
+      "description": "Configure System to Audit All Failed Write Actions on the System",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_flags_lo_configure": {
+      "title": "audit_flags_lo_configure",
+      "description": "Configure System to Audit All Log In and Log Out Events",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_folder_group_configure": {
+      "title": "audit_folder_group_configure",
+      "description": "Configure Audit Log Folders Group to Wheel",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_folder_owner_configure": {
+      "title": "audit_folder_owner_configure",
+      "description": "Configure Audit Log Folders to be Owned by Root",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_folders_mode_configure": {
+      "title": "audit_folders_mode_configure",
+      "description": "Configure Audit Log Folders to Mode 700 or Less Permissive",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_retention_configure": {
+      "title": "audit_retention_configure",
+      "description": "Configure Audit Retention to $ODV",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "audit_settings_failure_notify": {
+      "title": "audit_settings_failure_notify",
+      "description": "Configure Audit Failure Notification",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_airdrop_disable": {
+      "title": "os_airdrop_disable",
+      "description": "Disable AirDrop",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_appleid_prompt_disable": {
+      "title": "os_appleid_prompt_disable",
+      "description": "Disable Apple ID Setup during Setup Assistant",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_asl_log_files_owner_group_configure": {
+      "title": "os_asl_log_files_owner_group_configure",
+      "description": "Configure Apple System Log Files Owned by Root and Group to Wheel",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_asl_log_files_permissions_configure": {
+      "title": "os_asl_log_files_permissions_configure",
+      "description": "Configure Apple System Log Files To Mode 640 or Less Permissive",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_authenticated_root_enable": {
+      "title": "os_authenticated_root_enable",
+      "description": "Enable Authenticated Root",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_bonjour_disable": {
+      "title": "os_bonjour_disable",
+      "description": "Disable Bonjour Multicast",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_calendar_app_disable": {
+      "title": "os_calendar_app_disable",
+      "description": "Disable Calendar.app",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_certificate_authority_trust": {
+      "title": "os_certificate_authority_trust",
+      "description": "Issue or Obtain Public Key Certificates from an Approved Service Provider",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_config_data_install_enforce": {
+      "title": "os_config_data_install_enforce",
+      "description": "Enforce Installation of XProtect, MRT, and Gatekeeper Updates Automatically",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_facetime_app_disable": {
+      "title": "os_facetime_app_disable",
+      "description": "Disable FaceTime.app",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_filevault_autologin_disable": {
+      "title": "os_filevault_autologin_disable",
+      "description": "Disable FileVault Automatic Login",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_firewall_default_deny_require": {
+      "title": "os_firewall_default_deny_require",
+      "description": "Control Connections to Other Systems via a Deny-All and Allow-by-Exception Firewall Policy",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_firewall_log_enable": {
+      "title": "os_firewall_log_enable",
+      "description": "Enable Firewall Logging",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_firmware_password_require": {
+      "title": "os_firmware_password_require",
+      "description": "Enable Firmware Password",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_gatekeeper_enable": {
+      "title": "os_gatekeeper_enable",
+      "description": "Enable Gatekeeper",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_gatekeeper_rearm": {
+      "title": "os_gatekeeper_rearm",
+      "description": "Enforce Gatekeeper 30 Day Automatic Rearm",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_handoff_disable": {
+      "title": "os_handoff_disable",
+      "description": "Disable Handoff",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_home_folders_secure": {
+      "title": "os_home_folders_secure",
+      "description": "Secure User's Home Folders",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_httpd_disable": {
+      "title": "os_httpd_disable",
+      "description": "Disable the Built-in Web Server",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_icloud_storage_prompt_disable": {
+      "title": "os_icloud_storage_prompt_disable",
+      "description": "Disable iCloud Storage Setup during Setup Assistant",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_ir_support_disable": {
+      "title": "os_ir_support_disable",
+      "description": "Disable Infrared (IR) support",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_mail_app_disable": {
+      "title": "os_mail_app_disable",
+      "description": "Disable Mail App",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_mdm_require": {
+      "title": "os_mdm_require",
+      "description": "Enforce Enrollment in Mobile Device Management",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_messages_app_disable": {
+      "title": "os_messages_app_disable",
+      "description": "Disable Messages App",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_mobile_file_integrity_enable": {
+      "title": "os_mobile_file_integrity_enable",
+      "description": "Enable Apple Mobile File Integrity",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_newsyslog_files_owner_group_configure": {
+      "title": "os_newsyslog_files_owner_group_configure",
+      "description": "Configure System Log Files Owned by Root and Group to Wheel",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_newsyslog_files_permissions_configure": {
+      "title": "os_newsyslog_files_permissions_configure",
+      "description": "Configure System Log Files to Mode 640 or Less Permissive",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_nfsd_disable": {
+      "title": "os_nfsd_disable",
+      "description": "Disable Network File System Service",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_parental_controls_enable": {
+      "title": "os_parental_controls_enable",
+      "description": "Enable Parental Controls",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_password_autofill_disable": {
+      "title": "os_password_autofill_disable",
+      "description": "Disable Password Autofill",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_password_proximity_disable": {
+      "title": "os_password_proximity_disable",
+      "description": "Disable Proximity Based Password Sharing Requests",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_password_sharing_disable": {
+      "title": "os_password_sharing_disable",
+      "description": "Disable Password Sharing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_policy_banner_loginwindow_enforce": {
+      "title": "os_policy_banner_loginwindow_enforce",
+      "description": "Display Policy Banner at Login Window",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_recovery_lock_enable": {
+      "title": "os_recovery_lock_enable",
+      "description": "Enable Recovery Lock",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_removable_media_disable": {
+      "title": "os_removable_media_disable",
+      "description": "Disable Removable Storage Devices",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_root_disable": {
+      "title": "os_root_disable",
+      "description": "Disable Root Login",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_screensaver_loginwindow_enforce": {
+      "title": "os_screensaver_loginwindow_enforce",
+      "description": "Enforce Screen Saver at Login Window",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_secure_boot_verify": {
+      "title": "os_secure_boot_verify",
+      "description": "Ensure Secure Boot Level Set to Full",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_sip_enable": {
+      "title": "os_sip_enable",
+      "description": "Ensure System Integrity Protection is Enabled",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_siri_prompt_disable": {
+      "title": "os_siri_prompt_disable",
+      "description": "Disable Siri Setup during Setup Assistant",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_ssh_fips_140_ciphers": {
+      "title": "os_ssh_fips_140_ciphers",
+      "description": "Limit SSH to FIPS 140 Validated Ciphers",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_ssh_fips_140_macs": {
+      "title": "os_ssh_fips_140_macs",
+      "description": "Limit SSH to FIPS 140 Validated Message Authentication Code Algorithms",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_ssh_server_alive_count_max_configure": {
+      "title": "os_ssh_server_alive_count_max_configure",
+      "description": "Set SSH Active Server Alive Maximum to $ODV",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_ssh_server_alive_interval_configure": {
+      "title": "os_ssh_server_alive_interval_configure",
+      "description": "Configure SSH ServerAliveInterval option set to $ODV",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_sudo_timeout_configure": {
+      "title": "os_sudo_timeout_configure",
+      "description": "Configure Sudo Timeout Period to $ODV",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_sudoers_timestamp_type_configure": {
+      "title": "os_sudoers_timestamp_type_configure",
+      "description": "Configure Sudoers Timestamp Type",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_system_read_only": {
+      "title": "os_system_read_only",
+      "description": "Ensure System Volume is Read Only",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_tftpd_disable": {
+      "title": "os_tftpd_disable",
+      "description": "Disable Trivial File Tansfer Protocol Service",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_time_server_enabled": {
+      "title": "os_time_server_enabled",
+      "description": "Enable Time Synchronization Daemon",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_touchid_prompt_disable": {
+      "title": "os_touchid_prompt_disable",
+      "description": "Disable TouchID Prompt during Setup Assistant",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_unlock_active_user_session_disable": {
+      "title": "os_unlock_active_user_session_disable",
+      "description": "Disable Login to Other User's Active and Locked Sessions",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "os_uucp_disable": {
+      "title": "os_uucp_disable",
+      "description": "Disable Unix-to-Unix Copy Protocol Service",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_account_inactivity_enforce": {
+      "title": "pwpolicy_account_inactivity_enforce",
+      "description": "Disable Accounts after $ODV Days of Inactivity",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_account_lockout_enforce": {
+      "title": "pwpolicy_account_lockout_enforce",
+      "description": "Limit Consecutive Failed Login Attempts to $ODV",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_account_lockout_timeout_enforce": {
+      "title": "pwpolicy_account_lockout_timeout_enforce",
+      "description": "Set Account Lockout Time to $ODV Minutes",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_alpha_numeric_enforce": {
+      "title": "pwpolicy_alpha_numeric_enforce",
+      "description": "Require Passwords Contain a Minimum of One Numeric Character",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_history_enforce": {
+      "title": "pwpolicy_history_enforce",
+      "description": "Prohibit Password Reuse for a Minimum of $ODV Generations",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_lower_case_character_enforce": {
+      "title": "pwpolicy_lower_case_character_enforce",
+      "description": "Require Passwords Contain a Minimum of One Lowercase Character",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_max_lifetime_enforce": {
+      "title": "pwpolicy_max_lifetime_enforce",
+      "description": "Restrict Maximum Password Lifetime to $ODV Days",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_minimum_length_enforce": {
+      "title": "pwpolicy_minimum_length_enforce",
+      "description": "Require a Minimum Password Length of $ODV Characters",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_minimum_lifetime_enforce": {
+      "title": "pwpolicy_minimum_lifetime_enforce",
+      "description": "Set Minimum Password Lifetime to $ODV Hours",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_simple_sequence_disable": {
+      "title": "pwpolicy_simple_sequence_disable",
+      "description": "Prohibit Repeating, Ascending, and Descending Character Sequences",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_special_character_enforce": {
+      "title": "pwpolicy_special_character_enforce",
+      "description": "Require Passwords Contain a Minimum of One Special Character",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_temporary_or_emergency_accounts_disable": {
+      "title": "pwpolicy_temporary_or_emergency_accounts_disable",
+      "description": "Automatically Remove or Disable Temporary or Emergency User Accounts within 72 Hours",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "pwpolicy_upper_case_character_enforce": {
+      "title": "pwpolicy_upper_case_character_enforce",
+      "description": "Require Passwords Contain a Minimum of One Uppercase Character",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_addressbook_disable": {
+      "title": "icloud_addressbook_disable",
+      "description": "Disable iCloud Address Book",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_appleid_prefpane_disable": {
+      "title": "icloud_appleid_prefpane_disable",
+      "description": "Disable the System Preference Pane for Apple ID",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_bookmarks_disable": {
+      "title": "icloud_bookmarks_disable",
+      "description": "Disable iCloud Bookmarks",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_calendar_disable": {
+      "title": "icloud_calendar_disable",
+      "description": "Disable the iCloud Calendar Services",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_drive_disable": {
+      "title": "icloud_drive_disable",
+      "description": "Disable iCloud Document Sync",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_keychain_disable": {
+      "title": "icloud_keychain_disable",
+      "description": "Disable iCloud Keychain Sync",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_mail_disable": {
+      "title": "icloud_mail_disable",
+      "description": "Disable iCloud Mail",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_notes_disable": {
+      "title": "icloud_notes_disable",
+      "description": "Disable iCloud Notes",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_photos_disable": {
+      "title": "icloud_photos_disable",
+      "description": "Disable iCloud Photo Library",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_reminders_disable": {
+      "title": "icloud_reminders_disable",
+      "description": "Disable iCloud Reminders",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "icloud_sync_disable": {
+      "title": "icloud_sync_disable",
+      "description": "Disable iCloud Desktop and Document Folder Sync",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_apple_watch_unlock_disable": {
+      "title": "sysprefs_apple_watch_unlock_disable",
+      "description": "Prevent Apple Watch from Terminating a Session Lock",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_automatic_login_disable": {
+      "title": "sysprefs_automatic_login_disable",
+      "description": "Disable Unattended or Automatic Logon to the System",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_automatic_logout_enforce": {
+      "title": "sysprefs_automatic_logout_enforce",
+      "description": "Enforce Auto Logout After $ODV Seconds of Inactivity",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_bluetooth_disable": {
+      "title": "sysprefs_bluetooth_disable",
+      "description": "Disable Bluetooth When no Approved Device is Connected",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_bluetooth_sharing_disable": {
+      "title": "sysprefs_bluetooth_sharing_disable",
+      "description": "Disable Bluetooth Sharing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_cd_dvd_sharing_disable": {
+      "title": "sysprefs_cd_dvd_sharing_disable",
+      "description": "Disable CD/DVD Sharing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_content_caching_disable": {
+      "title": "sysprefs_content_caching_disable",
+      "description": "Disable Content Caching Service",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_critical_update_install_enforce": {
+      "title": "sysprefs_critical_update_install_enforce",
+      "description": "Enforce Critical Security Updates to be Installed",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_diagnostics_reports_disable": {
+      "title": "sysprefs_diagnostics_reports_disable",
+      "description": "Disable Sending Diagnostic and Usage Data to Apple",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_filevault_enforce": {
+      "title": "sysprefs_filevault_enforce",
+      "description": "Enforce FileVault",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_find_my_disable": {
+      "title": "sysprefs_find_my_disable",
+      "description": "Disable Find My Service",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_firewall_enable": {
+      "title": "sysprefs_firewall_enable",
+      "description": "Enable macOS Application Firewall",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_firewall_stealth_mode_enable": {
+      "title": "sysprefs_firewall_stealth_mode_enable",
+      "description": "Enable Firewall Stealth Mode",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_gatekeeper_identified_developers_allowed": {
+      "title": "sysprefs_gatekeeper_identified_developers_allowed",
+      "description": "Apply Gatekeeper Settings to Block Applications from Unidentified Developers",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_gatekeeper_override_disallow": {
+      "title": "sysprefs_gatekeeper_override_disallow",
+      "description": "Configure Gatekeeper to Disallow End User Override",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_guest_access_smb_disable": {
+      "title": "sysprefs_guest_access_smb_disable",
+      "description": "Disable Guest Access to Shared SMB Folders",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_guest_account_disable": {
+      "title": "sysprefs_guest_account_disable",
+      "description": "Disable the Guest Account",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_hot_corners_disable": {
+      "title": "sysprefs_hot_corners_disable",
+      "description": "Disable Hot Corners",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_improve_siri_dictation_disable": {
+      "title": "sysprefs_improve_siri_dictation_disable",
+      "description": "Disable Sending Siri and Dictation Information to Apple",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_internet_accounts_prefpane_disable": {
+      "title": "sysprefs_internet_accounts_prefpane_disable",
+      "description": "Disable the Internet Accounts System Preference Pane",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_internet_sharing_disable": {
+      "title": "sysprefs_internet_sharing_disable",
+      "description": "Disable Internet Sharing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_location_services_disable": {
+      "title": "sysprefs_location_services_disable",
+      "description": "Disable Location Services",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_loginwindow_prompt_username_password_enforce": {
+      "title": "sysprefs_loginwindow_prompt_username_password_enforce",
+      "description": "Configure Login Window to Prompt for Username and Password",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_media_sharing_disabled": {
+      "title": "sysprefs_media_sharing_disabled",
+      "description": "Disable Media Sharing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_password_hints_disable": {
+      "title": "sysprefs_password_hints_disable",
+      "description": "Disable Password Hints",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_personalized_advertising_disable": {
+      "title": "sysprefs_personalized_advertising_disable",
+      "description": "Disable Personalized Advertising",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_power_nap_disable": {
+      "title": "sysprefs_power_nap_disable",
+      "description": "Disable Power Nap",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_printer_sharing_disable": {
+      "title": "sysprefs_printer_sharing_disable",
+      "description": "Disable Printer Sharing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_rae_disable": {
+      "title": "sysprefs_rae_disable",
+      "description": "Disable Remote Apple Events",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_remote_management_disable": {
+      "title": "sysprefs_remote_management_disable",
+      "description": "Disable Remote Management",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_screen_sharing_disable": {
+      "title": "sysprefs_screen_sharing_disable",
+      "description": "Disable Screen Sharing and Apple Remote Desktop",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_screensaver_ask_for_password_delay_enforce": {
+      "title": "sysprefs_screensaver_ask_for_password_delay_enforce",
+      "description": "Enforce Session Lock After Screen Saver is Started",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_screensaver_password_enforce": {
+      "title": "sysprefs_screensaver_password_enforce",
+      "description": "Enforce Screen Saver Password",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_screensaver_timeout_enforce": {
+      "title": "sysprefs_screensaver_timeout_enforce",
+      "description": "Enforce Screen Saver Timeout",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_siri_disable": {
+      "title": "sysprefs_siri_disable",
+      "description": "Disable Siri",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_smbd_disable": {
+      "title": "sysprefs_smbd_disable",
+      "description": "Disable Server Message Block Sharing",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_ssh_disable": {
+      "title": "sysprefs_ssh_disable",
+      "description": "Disable SSH Server for Remote Access Sessions",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_system_wide_preferences_configure": {
+      "title": "sysprefs_system_wide_preferences_configure",
+      "description": "Require Administrator Password to Modify System-Wide Preferences",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_time_server_configure": {
+      "title": "sysprefs_time_server_configure",
+      "description": "Configure macOS to Use an Authorized Time Server",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_time_server_enforce": {
+      "title": "sysprefs_time_server_enforce",
+      "description": "Enable macOS Time Synchronization Daemon (timed)",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_token_removal_enforce": {
+      "title": "sysprefs_token_removal_enforce",
+      "description": "Configure User Session Lock When a Smart Token is Removed",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_touchid_unlock_disable": {
+      "title": "sysprefs_touchid_unlock_disable",
+      "description": "Disable TouchID for Unlocking the Device",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+      "sysprefs_wifi_disable": {
+      "title": "sysprefs_wifi_disable",
+      "description": "Disable Wi-Fi Interface",
+      "property_order": 1,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "object",
+          "properties": {
+            "exempt": {
+              "description": "If value is true, exempt_reason is required",
+              "type": "boolean"
+            },
+            "exempt_reason": {
+              "description": "Specify Exempt Reasoning",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+    }}
