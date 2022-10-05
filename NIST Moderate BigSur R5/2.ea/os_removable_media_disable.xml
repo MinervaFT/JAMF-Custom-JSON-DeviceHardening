@@ -1,0 +1,72 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - os_removable_media_disable</name>
+<description>Removable media, such as USB connected external hard drives, thumb drives, and optical media, _MUST_ be disabled for users.
+
+Disabling removable storage devices reduces the risks and known vulnerabilities of such devices (e.g., malicious code insertion)
+
+[IMPORTANT]
+====
+Some organizations rely on the use of removable media for storing and sharing data. Information System Security Officers (ISSOs) may make the risk-based decision not to disable external hard drives to avoid losing this functionality, but they are advised to first fully weigh the potential risks posed to their organization.
+====
+
+[IMPORTANT]
+====
+Apple has deprecated the use of media mount controls, using these controls may not work as expected. Third party software may be required to fullfill the compliance requirements.
+====
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: os_removable_media_disable -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * MP-7&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: os_removable_media_disable ...' &#13;
+    unset result_value&#13;
+    result_value=$(/usr/bin/osascript -l JavaScript &lt;&lt; EOS&#13;
+ObjC.unwrap($.NSUserDefaults.alloc.initWithSuiteName('com.apple.systemuiserver')\&#13;
+.objectForKey('mount-controls'))["harddisk-external"]&#13;
+EOS)&#13;
+    # expected result {'string': 'deny'}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print os_removable_media_disable:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print os_removable_media_disable:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "deny" ]]; then&#13;
+            echo "&lt;result&gt;os_removable_media_disable passed (Result: $result_value, Expected: "{'string': 'deny'}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;os_removable_media_disable failed (Result: $result_value, Expected: "{'string': 'deny'}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;os_removable_media_disable has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;os_removable_media_disable does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

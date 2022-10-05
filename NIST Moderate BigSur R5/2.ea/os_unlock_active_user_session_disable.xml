@@ -1,0 +1,59 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - os_unlock_active_user_session_disable</name>
+<description>The ability to log in to another user's active or locked session _MUST_ be disabled. 
+
+macOS has a privilege that can be granted to any user that will allow that user to unlock active user's sessions. Disabling the admins and/or user's ability to log into another user's active andlocked session prevents unauthorized persons from viewing potentially sensitive and/or personal information.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: os_unlock_active_user_session_disable -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * IA-2, IA-2(5)&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: os_unlock_active_user_session_disable ...' &#13;
+    unset result_value&#13;
+    result_value=$(/usr/bin/security authorizationdb read system.login.screensaver 2&gt;&amp;1 | /usr/bin/grep -c 'use-login-window-ui')&#13;
+    # expected result {'integer': 1}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print os_unlock_active_user_session_disable:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print os_unlock_active_user_session_disable:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "1" ]]; then&#13;
+            echo "&lt;result&gt;os_unlock_active_user_session_disable passed (Result: $result_value, Expected: "{'integer': 1}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;os_unlock_active_user_session_disable failed (Result: $result_value, Expected: "{'integer': 1}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;os_unlock_active_user_session_disable has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;os_unlock_active_user_session_disable does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

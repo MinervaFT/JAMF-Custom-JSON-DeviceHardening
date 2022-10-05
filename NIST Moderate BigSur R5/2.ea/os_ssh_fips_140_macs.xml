@@ -1,0 +1,66 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - os_ssh_fips_140_macs</name>
+<description>SSH _MUST_ be configured to limit the Message Authentication Codes (MACs) to algorithms that are FIPS 140 validated.
+
+FIPS 140-2 is the current standard for validating that mechanisms used to access cryptographic modules utilize authentication that meets federal requirements.
+
+Operating systems utilizing encryption _MUST_ use FIPS validated mechanisms for authenticating to cryptographic modules. 
+
+NOTE: /etc/ssh/ssh_config will be automatically modified to its original state following any update or major upgrade to the operating system.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: os_ssh_fips_140_macs -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * AC-17(2)&#13;
+# * IA-7&#13;
+# * SC-13&#13;
+# * SC-8(1)&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: os_ssh_fips_140_macs ...' &#13;
+    unset result_value&#13;
+    result_value=$(/usr/bin/grep -c "^MACs hmac-sha2-256,hmac-sha2-512" /etc/ssh/ssh_config)&#13;
+    # expected result {'integer': 1}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print os_ssh_fips_140_macs:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print os_ssh_fips_140_macs:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "1" ]]; then&#13;
+            echo "&lt;result&gt;os_ssh_fips_140_macs passed (Result: $result_value, Expected: "{'integer': 1}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;os_ssh_fips_140_macs failed (Result: $result_value, Expected: "{'integer': 1}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;os_ssh_fips_140_macs has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;os_ssh_fips_140_macs does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

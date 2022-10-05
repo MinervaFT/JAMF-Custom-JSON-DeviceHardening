@@ -1,0 +1,22 @@
+{
+	"title": "org.800-53r5_moderate.audit",
+	"description": "",
+	"properties": {
+        "auth_smartcard_enforce": {
+            "title": "auth_smartcard_enforce",
+            "description": "",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "string",
+                    "options": {
+                        "enum_titles": []
+                    },
+                    "enum": []
+                }
+            ]
+        }
+	}
+}

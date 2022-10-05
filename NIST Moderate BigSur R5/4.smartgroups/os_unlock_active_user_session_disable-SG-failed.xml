@@ -1,0 +1,15 @@
+<computer_group>
+<name>os_unlock_active_user_session_disable - Failed</name>
+<is_smart>true</is_smart>
+<criteria>
+<criterion>
+<name>800-53r5_moderate - os_unlock_active_user_session_disable</name>
+<priority>0</priority>
+<and_or>and</and_or>
+<search_type>like</search_type>
+<value>os_unlock_active_user_session_disable failed</value>
+<opening_paren>false</opening_paren>
+<closing_paren>false</closing_paren>
+</criterion>
+</criteria>
+</computer_group>

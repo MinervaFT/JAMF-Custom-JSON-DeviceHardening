@@ -1,0 +1,61 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - audit_folder_group_configure</name>
+<description>Audit log files _MUST_ have the group set to wheel.
+
+The audit service _MUST_ be configured to create log files with the correct group ownership to prevent normal users from reading audit logs. 
+
+Audit logs contain sensitive data about the system and users. If log files are set to be readable and writable only by system administrators, the risk is mitigated.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: audit_folder_group_configure -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * AU-9&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: audit_folder_group_configure ...' &#13;
+    unset result_value&#13;
+    result_value=$(/bin/ls -dn $(/usr/bin/grep '^dir' /etc/security/audit_control | /usr/bin/awk -F: '{print $2}') | /usr/bin/awk '{print $4}')&#13;
+    # expected result {'integer': 0}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print audit_folder_group_configure:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print audit_folder_group_configure:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "0" ]]; then&#13;
+            echo "&lt;result&gt;audit_folder_group_configure passed (Result: $result_value, Expected: "{'integer': 0}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;audit_folder_group_configure failed (Result: $result_value, Expected: "{'integer': 0}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;audit_folder_group_configure has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;audit_folder_group_configure does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

@@ -1,0 +1,61 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - pwpolicy_minimum_lifetime_enforce</name>
+<description>The macOS _MUST_ be configured to enforce a minimum password lifetime limit of $ODV hours.
+
+This rule discourages users from cycling through their previous passwords to get back to a preferred one.
+
+NOTE: The guidance for password based authentication in NIST 800-53 (Rev 5) and NIST 800-63B state that complexity rules should be organizationally defined. The values defined are based off of common complexity values. But your organization may define its own password complexity rules.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: pwpolicy_minimum_lifetime_enforce -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * IA-5&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: pwpolicy_minimum_lifetime_enforce ...' &#13;
+    unset result_value&#13;
+    result_value=$(/usr/bin/pwpolicy -getaccountpolicies 2&gt; /dev/null | /usr/bin/tail +2 | /usr/bin/xmllint --xpath '//dict/key[text()="policyAttributeMinimumLifetimeHours"]/following-sibling::integer[1]/text()' - | /usr/bin/awk '{ if ($1 &gt;= $ODV ) {print "yes"} else {print "no"}}')&#13;
+    # expected result {'string': 'yes'}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print pwpolicy_minimum_lifetime_enforce:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print pwpolicy_minimum_lifetime_enforce:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "yes" ]]; then&#13;
+            echo "&lt;result&gt;pwpolicy_minimum_lifetime_enforce passed (Result: $result_value, Expected: "{'string': 'yes'}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;pwpolicy_minimum_lifetime_enforce failed (Result: $result_value, Expected: "{'string': 'yes'}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;pwpolicy_minimum_lifetime_enforce has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;pwpolicy_minimum_lifetime_enforce does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

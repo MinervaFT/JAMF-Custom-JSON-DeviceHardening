@@ -1,0 +1,39 @@
+<script>
+<name>800-53r5_moderate - os_httpd_disable - Fix</name>
+ <category>800-53r5_moderate - macos</category>
+<script_contents>#!/bin/zsh&#13;
+#####----- Rule: os_httpd_disable -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * AC-17&#13;
+# * AC-3&#13;
+&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.0.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.0.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.0.audit.plist"&#13;
+audit_log="/Library/Logs/0_baseline.log"&#13;
+&#13;
+# check to see if rule is exempt&#13;
+unset exempt&#13;
+unset exempt_reason&#13;
+exempt=$($plb -c "print os_httpd_disable:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+exempt_reason=$($plb -c "print os_httpd_disable:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+os_httpd_disable_audit_score=$($plb -c "print os_httpd_disable:finding" $audit_plist)&#13;
+if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+    if [[ $os_httpd_disable_audit_score == "true" ]]; then&#13;
+            echo 'Running the command to configure the settings for: os_httpd_disable ...' &#13;
+            /bin/launchctl disable system/org.apache.httpd&#13;
+    else&#13;
+        echo 'Settings for: os_httpd_disable already configured, continuing...' &#13;
+    fi&#13;
+elif [[ ! -z "$exempt_reason" ]];then&#13;
+    echo "$(date -u) os_httpd_disable has an exemption (Reason: "$exempt_reason")" &#13;
+fi&#13;
+    </script_contents>
+</script>

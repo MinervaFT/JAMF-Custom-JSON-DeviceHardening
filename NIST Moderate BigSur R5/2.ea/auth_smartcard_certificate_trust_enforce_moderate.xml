@@ -1,0 +1,67 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - auth_smartcard_certificate_trust_enforce_moderate</name>
+<description>The macOS system _MUST_ be configured to block access to users who are no longer authorized (i.e., users with revoked certificates).  
+
+To prevent the use of untrusted certificates, the certificates on a smartcard card _MUST_ meet the following criteria: its issuer has a system-trusted certificate, the certificate is not expired, its "valid-after" date is in the past, and it passes Certificate Revocation List (CRL) and Online Certificate Status Protocol (OCSP) checking.
+
+By setting the smartcard certificate trust level to moderate, the system will execute a soft revocation, i.e., if the OCSP/CRL server is unreachable, authentication will still succeed.
+
+NOTE: Before applying this setting, please see the smartcard supplemental guidance.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: auth_smartcard_certificate_trust_enforce_moderate -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * IA-5(2)&#13;
+# * SC-17&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: auth_smartcard_certificate_trust_enforce_moderate ...' &#13;
+    unset result_value&#13;
+    result_value=$(/usr/bin/osascript -l JavaScript &lt;&lt; EOS&#13;
+$.NSUserDefaults.alloc.initWithSuiteName('com.apple.security.smartcard')\&#13;
+.objectForKey('checkCertificateTrust').js&#13;
+EOS)&#13;
+    # expected result {'integer': 2}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print auth_smartcard_certificate_trust_enforce_moderate:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print auth_smartcard_certificate_trust_enforce_moderate:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "2" ]]; then&#13;
+            echo "&lt;result&gt;auth_smartcard_certificate_trust_enforce_moderate passed (Result: $result_value, Expected: "{'integer': 2}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;auth_smartcard_certificate_trust_enforce_moderate failed (Result: $result_value, Expected: "{'integer': 2}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;auth_smartcard_certificate_trust_enforce_moderate has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;auth_smartcard_certificate_trust_enforce_moderate does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

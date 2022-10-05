@@ -1,0 +1,42 @@
+<script>
+<name>800-53r5_moderate - os_policy_banner_loginwindow_enforce - Fix</name>
+ <category>800-53r5_moderate - macos</category>
+<script_contents>#!/bin/zsh&#13;
+#####----- Rule: os_policy_banner_loginwindow_enforce -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * AC-8&#13;
+&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.0.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.0.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.0.audit.plist"&#13;
+audit_log="/Library/Logs/0_baseline.log"&#13;
+&#13;
+# check to see if rule is exempt&#13;
+unset exempt&#13;
+unset exempt_reason&#13;
+exempt=$($plb -c "print os_policy_banner_loginwindow_enforce:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+exempt_reason=$($plb -c "print os_policy_banner_loginwindow_enforce:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+os_policy_banner_loginwindow_enforce_audit_score=$($plb -c "print os_policy_banner_loginwindow_enforce:finding" $audit_plist)&#13;
+if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+    if [[ $os_policy_banner_loginwindow_enforce_audit_score == "true" ]]; then&#13;
+            echo 'Running the command to configure the settings for: os_policy_banner_loginwindow_enforce ...' &#13;
+            bannerText="$ODV"&#13;
+/bin/mkdir /Library/Security/PolicyBanner.rtfd&#13;
+/usr/bin/textutil -convert rtf -output /Library/Security/PolicyBanner.rtfd/TXT.rtf -stdin &lt;&lt;EOF              &#13;
+$bannerText&#13;
+EOF&#13;
+    else&#13;
+        echo 'Settings for: os_policy_banner_loginwindow_enforce already configured, continuing...' &#13;
+    fi&#13;
+elif [[ ! -z "$exempt_reason" ]];then&#13;
+    echo "$(date -u) os_policy_banner_loginwindow_enforce has an exemption (Reason: "$exempt_reason")" &#13;
+fi&#13;
+    </script_contents>
+</script>

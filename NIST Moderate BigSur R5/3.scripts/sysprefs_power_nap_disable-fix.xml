@@ -1,0 +1,38 @@
+<script>
+<name>800-53r5_moderate - sysprefs_power_nap_disable - Fix</name>
+ <category>800-53r5_moderate - systempreferences</category>
+<script_contents>#!/bin/zsh&#13;
+#####----- Rule: sysprefs_power_nap_disable -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * CM-7, CM-7(1)&#13;
+&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.0.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.0.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.0.audit.plist"&#13;
+audit_log="/Library/Logs/0_baseline.log"&#13;
+&#13;
+# check to see if rule is exempt&#13;
+unset exempt&#13;
+unset exempt_reason&#13;
+exempt=$($plb -c "print sysprefs_power_nap_disable:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+exempt_reason=$($plb -c "print sysprefs_power_nap_disable:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+sysprefs_power_nap_disable_audit_score=$($plb -c "print sysprefs_power_nap_disable:finding" $audit_plist)&#13;
+if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+    if [[ $sysprefs_power_nap_disable_audit_score == "true" ]]; then&#13;
+            echo 'Running the command to configure the settings for: sysprefs_power_nap_disable ...' &#13;
+            /usr/bin/pmset -a powernap 0&#13;
+    else&#13;
+        echo 'Settings for: sysprefs_power_nap_disable already configured, continuing...' &#13;
+    fi&#13;
+elif [[ ! -z "$exempt_reason" ]];then&#13;
+    echo "$(date -u) sysprefs_power_nap_disable has an exemption (Reason: "$exempt_reason")" &#13;
+fi&#13;
+    </script_contents>
+</script>

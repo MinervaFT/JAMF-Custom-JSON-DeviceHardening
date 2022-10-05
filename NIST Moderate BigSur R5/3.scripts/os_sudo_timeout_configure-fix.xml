@@ -1,0 +1,39 @@
+<script>
+<name>800-53r5_moderate - os_sudo_timeout_configure - Fix</name>
+ <category>800-53r5_moderate - macos</category>
+<script_contents>#!/bin/zsh&#13;
+#####----- Rule: os_sudo_timeout_configure -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * N/A&#13;
+&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.0.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.0.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.0.audit.plist"&#13;
+audit_log="/Library/Logs/0_baseline.log"&#13;
+&#13;
+# check to see if rule is exempt&#13;
+unset exempt&#13;
+unset exempt_reason&#13;
+exempt=$($plb -c "print os_sudo_timeout_configure:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+exempt_reason=$($plb -c "print os_sudo_timeout_configure:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+os_sudo_timeout_configure_audit_score=$($plb -c "print os_sudo_timeout_configure:finding" $audit_plist)&#13;
+if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+    if [[ $os_sudo_timeout_configure_audit_score == "true" ]]; then&#13;
+            echo 'Running the command to configure the settings for: os_sudo_timeout_configure ...' &#13;
+            /usr/bin/find /etc/sudoers* -type f -exec sed -i '' '/timestamp_timeout/d' '{}' \;&#13;
+/bin/echo "Defaults timestamp_timeout=$ODV" &gt;&gt; /etc/sudoers.d/mscp&#13;
+    else&#13;
+        echo 'Settings for: os_sudo_timeout_configure already configured, continuing...' &#13;
+    fi&#13;
+elif [[ ! -z "$exempt_reason" ]];then&#13;
+    echo "$(date -u) os_sudo_timeout_configure has an exemption (Reason: "$exempt_reason")" &#13;
+fi&#13;
+    </script_contents>
+</script>

@@ -1,0 +1,63 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - sysprefs_time_server_enforce</name>
+<description>The timed service _MUST_ be enabled on all networked systems and configured to set time automatically from the approved time server.
+
+This rule ensures the uniformity of time stamps for information systems with multiple system clocks and systems connected over a network.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: sysprefs_time_server_enforce -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * AU-12(1)&#13;
+# * SC-45(1)&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: sysprefs_time_server_enforce ...' &#13;
+    unset result_value&#13;
+    result_value=$(/usr/bin/osascript -l JavaScript &lt;&lt; EOS&#13;
+$.NSUserDefaults.alloc.initWithSuiteName('com.apple.timed')\&#13;
+.objectForKey('TMAutomaticTimeOnlyEnabled').js&#13;
+EOS)&#13;
+    # expected result {'string': 'true'}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print sysprefs_time_server_enforce:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print sysprefs_time_server_enforce:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "true" ]]; then&#13;
+            echo "&lt;result&gt;sysprefs_time_server_enforce passed (Result: $result_value, Expected: "{'string': 'true'}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;sysprefs_time_server_enforce failed (Result: $result_value, Expected: "{'string': 'true'}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;sysprefs_time_server_enforce has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;sysprefs_time_server_enforce does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

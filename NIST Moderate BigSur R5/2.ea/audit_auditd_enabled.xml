@@ -1,0 +1,70 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - audit_auditd_enabled</name>
+<description>The information system _MUST_ be configured to generate audit records. 
+
+Audit records establish what types of events have occurred, when they occurred, and which users were involved. These records aid an organization in their efforts to establish, correlate, and investigate the events leading up to an outage or attack.
+
+The content required to be captured in an audit record varies based on the impact level of an organization's system. Content that may be necessary to satisfy this requirement includes, for example, time stamps, source addresses, destination addresses, user identifiers, event descriptions, success/fail indications, filenames involved, and access or flow control rules invoked.
+
+The information system initiates session audits at system start-up.
+
+NOTE: Security auditing is enabled by default on macOS.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: audit_auditd_enabled -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * AU-12, AU-12(1), AU-12(3)&#13;
+# * AU-14(1)&#13;
+# * AU-3, AU-3(1)&#13;
+# * AU-8&#13;
+# * CM-5(1)&#13;
+# * MA-4(1)&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: audit_auditd_enabled ...' &#13;
+    unset result_value&#13;
+    result_value=$(/bin/launchctl list | /usr/bin/grep -c com.apple.auditd)&#13;
+    # expected result {'integer': 1}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print audit_auditd_enabled:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print audit_auditd_enabled:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "1" ]]; then&#13;
+            echo "&lt;result&gt;audit_auditd_enabled passed (Result: $result_value, Expected: "{'integer': 1}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;audit_auditd_enabled failed (Result: $result_value, Expected: "{'integer': 1}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;audit_auditd_enabled has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;audit_auditd_enabled does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            

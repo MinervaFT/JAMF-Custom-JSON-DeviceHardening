@@ -1,0 +1,42 @@
+<script>
+<name>800-53r5_moderate - os_home_folders_secure - Fix</name>
+ <category>800-53r5_moderate - macos</category>
+<script_contents>#!/bin/zsh&#13;
+#####----- Rule: os_home_folders_secure -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * AC-6&#13;
+&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.0.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.0.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.0.audit.plist"&#13;
+audit_log="/Library/Logs/0_baseline.log"&#13;
+&#13;
+# check to see if rule is exempt&#13;
+unset exempt&#13;
+unset exempt_reason&#13;
+exempt=$($plb -c "print os_home_folders_secure:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+exempt_reason=$($plb -c "print os_home_folders_secure:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+os_home_folders_secure_audit_score=$($plb -c "print os_home_folders_secure:finding" $audit_plist)&#13;
+if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+    if [[ $os_home_folders_secure_audit_score == "true" ]]; then&#13;
+            echo 'Running the command to configure the settings for: os_home_folders_secure ...' &#13;
+            IFS=$'\n'&#13;
+for userDirs in $( /usr/bin/find /System/Volumes/Data/Users -mindepth 1 -maxdepth 1 -type d -perm -1 | /usr/bin/grep -v "Shared" | /usr/bin/grep -v "Guest" ); do&#13;
+  /bin/chmod og-rwx "$userDirs"&#13;
+done&#13;
+unset IFS&#13;
+    else&#13;
+        echo 'Settings for: os_home_folders_secure already configured, continuing...' &#13;
+    fi&#13;
+elif [[ ! -z "$exempt_reason" ]];then&#13;
+    echo "$(date -u) os_home_folders_secure has an exemption (Reason: "$exempt_reason")" &#13;
+fi&#13;
+    </script_contents>
+</script>

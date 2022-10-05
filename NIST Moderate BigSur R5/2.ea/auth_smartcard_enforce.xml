@@ -1,0 +1,69 @@
+<computer_extension_attribute>
+<id>0</id>
+<name>800-53r5_moderate - auth_smartcard_enforce</name>
+<description>Smartcard authentication _MUST_ be enforced.
+
+The use of smartcard credentials facilitates standardization and reduces the risk of unauthorized access.
+
+When enforceSmartCard is set to “true”, the smartcard must be used for login, authorization, and unlocking the screensaver.
+
+CAUTION: enforceSmartCard will apply to the whole system. No users will be able to login with their password unless the profile is removed or a user is exempt from smartcard enforcement.
+
+NOTE: enforceSmartcard requires allowSmartcard to be set to true in order to work.
+</description>
+<data_type>String</data_type>
+<input_type>
+<type>script</type>
+<platform>Mac</platform>
+<script>#!/bin/zsh        &#13;
+#####----- Rule: auth_smartcard_enforce -----#####&#13;
+## Addresses the following NIST 800-53 controls: &#13;
+# * IA-2, IA-2(1), IA-2(12), IA-2(2), IA-2(6), IA-2(8)&#13;
+# * IA-5(2)&#13;
+rule_arch=""&#13;
+plb="/usr/libexec/PlistBuddy"&#13;
+# setup files&#13;
+audit_plist_managed="/Library/Managed Preferences/org.800-53r5_moderate.audit.plist"&#13;
+&#13;
+if [[ ! -e "$audit_plist_managed" ]];then&#13;
+    audit_plist_managed="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+fi&#13;
+&#13;
+audit_plist="/Library/Preferences/org.800-53r5_moderate.audit.plist"&#13;
+audit_log="/Library/Logs/800-53r5_moderate_baseline.log"&#13;
+if [[ "$arch" == "$rule_arch" ]] || [[ -z "$rule_arch" ]]; then&#13;
+    #echo 'Running the command to check the settings for: auth_smartcard_enforce ...' &#13;
+    unset result_value&#13;
+    result_value=$(/usr/bin/osascript -l JavaScript &lt;&lt; EOS&#13;
+$.NSUserDefaults.alloc.initWithSuiteName('com.apple.security.smartcard')\&#13;
+.objectForKey('enforceSmartCard').js&#13;
+EOS)&#13;
+    # expected result {'string': 'true'}&#13;
+&#13;
+    # check to see if rule is exempt&#13;
+    unset exempt&#13;
+    unset exempt_reason&#13;
+    exempt=$($plb -c "print auth_smartcard_enforce:exempt" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+    exempt_reason=$($plb -c "print auth_smartcard_enforce:exempt_reason" "$audit_plist_managed" 2&gt;/dev/null)&#13;
+&#13;
+    if [[ ! $exempt == "true" ]] || [[ -z $exempt ]];then&#13;
+        if [[ $result_value == "true" ]]; then&#13;
+            echo "&lt;result&gt;auth_smartcard_enforce passed (Result: $result_value, Expected: "{'string': 'true'}")&lt;/result&gt;" &#13;
+            &#13;
+        else&#13;
+            echo "&lt;result&gt;auth_smartcard_enforce failed (Result: $result_value, Expected: "{'string': 'true'}")&lt;/result&gt;" &#13;
+            &#13;
+        fi&#13;
+    elif [[ ! -z "$exempt_reason" ]];then&#13;
+        echo "&lt;result&gt;auth_smartcard_enforce has an exemption (Reason: "$exempt_reason")&lt;/result&gt;" &#13;
+        &#13;
+        /bin/sleep 1&#13;
+    fi&#13;
+else&#13;
+    echo "&lt;result&gt;auth_smartcard_enforce does not apply to this architechture&lt;/result&gt;" &#13;
+fi</script>
+</input_type>
+<inventory_display>Extension Attributes</inventory_display>
+<recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
+            
