@@ -1,0 +1,18 @@
+{
+	"title": "com.apple.assistant.support",
+	"description": "",
+	"properties": {
+        "Siri Data Sharing Opt-In Status": {
+            "title": "Siri Data Sharing Opt-In Status",
+            "description": "NIST 11.19. Disable Sending Siri and Dictation Information to Apple, set to 2",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        }
+	}
+}
