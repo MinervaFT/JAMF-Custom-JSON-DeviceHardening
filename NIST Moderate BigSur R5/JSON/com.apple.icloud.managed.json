@@ -1,0 +1,18 @@
+{
+	"title": "com.apple.icloud.managed",
+	"description": "",
+	"properties": {
+        "DisableFMMiCloudSetting": {
+            "title": "DisableFMMiCloudSetting",
+            "description": "",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
